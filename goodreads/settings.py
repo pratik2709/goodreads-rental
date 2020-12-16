@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rent_engine.apps.RentEngineConfig',
     'rest_framework',
     'drf_yasg',
     'rest_framework.authtoken',

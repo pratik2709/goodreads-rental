@@ -19,3 +19,9 @@ class TestRentAPIVersion1(APITestCase):
     def test_api_successful_response_code(self):
         response = self.client.get(reverse('rent_engine:user-books'))
         self.assertEqual(response.status_code, 200)
+
+    def test_api_data(self):
+        response = self.client.get(reverse('rent_engine:user-books'))
+        data = response.json()
+        print(data)
+        self.assertDictEqual({'Fiction': 4, 'Regular': 6, 'Novel': 6}, data)

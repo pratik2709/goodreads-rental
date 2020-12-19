@@ -1,0 +1,140 @@
+[
+  {
+    "model": "rent_engine.categoryinformation",
+    "pk": 11,
+    "fields": {
+      "created_at": "2020-12-15T15:08:33.468Z",
+      "updated_at": "2020-12-15T15:08:33.468Z",
+      "name": "Novel",
+      "version": 1,
+      "rules": {
+        "starting": {
+          "rule": {">" : [ { "var" : "duration" }, 0 ]},
+          "amount": 1.5,
+          "unit": "day"
+        },
+        "minimum": {
+          "rule": {"<" : [ { "var" : "duration" }, 3 ]},
+          "amount": 4.5,
+          "unit": "overall"
+        }
+      }
+    }
+  },
+  {
+    "model": "rent_engine.categoryinformation",
+    "pk": 12,
+    "fields": {
+      "created_at": "2020-12-15T15:08:33.468Z",
+      "updated_at": "2020-12-15T15:08:33.468Z",
+      "name": "Regular",
+      "version": 1,
+      "rules": {
+        "starting": {
+          "rule": {"<=" : [ { "var" : "duration" }, 2 ]},
+          "amount": 1,
+          "unit": "day"
+        },
+        "maximum": {
+          "rule": {">" : [ { "var" : "duration" }, 2 ]},
+          "amount": 1.5,
+          "unit": "day"
+        },
+        "minimum": {
+          "rule": {"<" : [ { "var" : "duration" }, 2 ]},
+          "amount": 2,
+          "unit": "overall"
+        }
+      }
+    }
+  },
+  {
+    "model": "rent_engine.categoryinformation",
+    "pk": 13,
+    "fields": {
+      "created_at": "2020-12-15T15:08:33.468Z",
+      "updated_at": "2020-12-15T15:08:33.468Z",
+      "name": "Fiction",
+      "version": 1,
+      "rules": {
+        "starting": {
+          "rule": {">" : [ { "var" : "duration" }, 0 ]},
+          "amount": 3,
+          "unit": "day"
+        }
+      }
+    }
+  },
+  {
+    "model": "rent_engine.bookscatalogue",
+    "pk": 7,
+    "fields": {
+      "created_at": "2020-12-15T15:08:33.471Z",
+      "updated_at": "2020-12-15T15:08:33.471Z",
+      "name": "Fiction Book",
+      "author": "J K rowling",
+      "category": 13
+    }
+  },
+  {
+    "model": "rent_engine.bookscatalogue",
+    "pk": 8,
+    "fields": {
+      "created_at": "2020-12-15T15:08:33.471Z",
+      "updated_at": "2020-12-15T15:08:33.471Z",
+      "name": "Regular book",
+      "author": "Frank Hebert",
+      "category": 12
+    }
+  },
+  {
+    "model": "rent_engine.bookscatalogue",
+    "pk": 9,
+    "fields": {
+      "created_at": "2020-12-15T15:08:33.471Z",
+      "updated_at": "2020-12-15T15:08:33.471Z",
+      "name": "Novel book",
+      "author": "XYZ",
+      "category": 11
+    }
+  },
+  {
+    "model": "rent_engine.booksrented",
+    "pk": 7,
+    "fields": {
+      "created_at": "2020-12-15T15:08:33.474Z",
+      "updated_at": "2020-12-15T15:08:33.474Z",
+      "customer": 10,
+      "book": 7,
+      "date_rented": "2020-12-1",
+      "date_deposited": "2020-12-10",
+      "active": false
+    }
+  },
+  {
+    "model": "rent_engine.booksrented",
+    "pk": 8,
+    "fields": {
+      "created_at": "2020-12-15T15:08:33.474Z",
+      "updated_at": "2020-12-15T15:08:33.474Z",
+      "customer": 10,
+      "book": 8,
+      "date_rented": "2020-11-1",
+      "date_deposited": "2020-12-06",
+      "active": false
+    }
+  },
+  {
+    "model": "rent_engine.booksrented",
+    "pk": 9,
+    "fields": {
+      "created_at": "2020-12-15T15:08:33.474Z",
+      "updated_at": "2020-12-15T15:08:33.474Z",
+      "customer": 10,
+      "book": 9,
+      "date_rented": "2020-11-1",
+      "date_deposited": "2020-12-1",
+      "active": false
+    }
+  }
+]

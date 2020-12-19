@@ -48,3 +48,18 @@ class TestRentAPIStory2(APITestCase):
         data = response.json()
         print(data)
         self.assertDictEqual({'Fiction': 30, 'Regular': 15, 'Novel': 15}, data)
+
+class TestRentAPIStory3(APITestCase):
+    fixtures = ['data.json', 'customer.json', 'version_3.json']
+
+    def setUp(self):
+        user = User.objects.get(pk=2)
+        Token.objects.get_or_create(user=user)
+        self.client.force_login(user=user)
+        self.client.credentials(HTTP_AUTHORIZATION='Token ' + user.auth_token.key)
+
+    def test_api_result(self):
+        response = self.client.get(reverse('rent_engine:user-books'))
+        data = response.json()
+        print(data)
+        self.assertDictEqual({'Novel': 45.0, 'Regular': 51.5, 'Fiction': 27}, data)

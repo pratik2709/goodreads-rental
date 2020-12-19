@@ -1,0 +1,125 @@
+[
+  {
+    "model": "rent_engine.categoryinformation",
+    "pk": 9,
+    "fields": {
+      "created_at": "2020-12-15T15:08:33.468Z",
+      "updated_at": "2020-12-15T15:08:33.468Z",
+      "name": "Fiction",
+      "version": 1,
+      "rules": {
+        "starting": {
+          "rule": {">" : [ { "var" : "duration" }, 0 ]},
+          "amount": 3,
+          "unit": "day"
+        }
+      }
+    }
+  },
+  {
+    "model": "rent_engine.categoryinformation",
+    "pk": 10,
+    "fields": {
+      "created_at": "2020-12-15T15:08:33.468Z",
+      "updated_at": "2020-12-15T15:08:33.468Z",
+      "name": "Regular",
+      "version": 1,
+      "rules": {
+        "starting": {
+          "rule": {">" : [ { "var" : "duration" }, 0 ]},
+          "amount": 1.5,
+          "unit": "day"
+        }
+      }
+    }
+  },
+  {
+    "model": "rent_engine.categoryinformation",
+    "pk": 11,
+    "fields": {
+      "created_at": "2020-12-15T15:08:33.468Z",
+      "updated_at": "2020-12-15T15:08:33.468Z",
+      "name": "Novel",
+      "version": 1,
+      "rules": {
+        "starting": {
+          "rule": {">" : [ { "var" : "duration" }, 0 ]},
+          "amount": 1.5,
+          "unit": "day"
+        }
+      }
+    }
+  },
+  {
+    "model": "rent_engine.bookscatalogue",
+    "pk": 5,
+    "fields": {
+      "created_at": "2020-12-15T15:08:33.471Z",
+      "updated_at": "2020-12-15T15:08:33.471Z",
+      "name": "Foundation 1",
+      "author": "assimov",
+      "category": 9
+    }
+  },
+  {
+    "model": "rent_engine.bookscatalogue",
+    "pk": 6,
+    "fields": {
+      "created_at": "2020-12-15T15:08:33.471Z",
+      "updated_at": "2020-12-15T15:08:33.471Z",
+      "name": "Foundation 2",
+      "author": "assimov",
+      "category": 10
+    }
+  },
+  {
+    "model": "rent_engine.bookscatalogue",
+    "pk": 7,
+    "fields": {
+      "created_at": "2020-12-15T15:08:33.471Z",
+      "updated_at": "2020-12-15T15:08:33.471Z",
+      "name": "Foundation 3",
+      "author": "assimov",
+      "category": 11
+    }
+  },
+  {
+    "model": "rent_engine.booksrented",
+    "pk": 5,
+    "fields": {
+      "created_at": "2020-12-15T15:08:33.474Z",
+      "updated_at": "2020-12-15T15:08:33.474Z",
+      "customer": 10,
+      "book": 5,
+      "date_rented": "2020-12-12",
+      "date_deposited": "2020-12-22",
+      "active": false
+    }
+  },
+  {
+    "model": "rent_engine.booksrented",
+    "pk": 6,
+    "fields": {
+      "created_at": "2020-12-15T15:08:33.474Z",
+      "updated_at": "2020-12-15T15:08:33.474Z",
+      "customer": 10,
+      "book": 6,
+      "date_rented": "2020-12-12",
+      "date_deposited": "2020-12-22",
+      "active": false
+    }
+  },
+  {
+    "model": "rent_engine.booksrented",
+    "pk": 7,
+    "fields": {
+      "created_at": "2020-12-15T15:08:33.474Z",
+      "updated_at": "2020-12-15T15:08:33.474Z",
+      "customer": 10,
+      "book": 7,
+      "date_rented": "2020-12-12",
+      "date_deposited": "2020-12-22",
+      "active": false
+    }
+  }
+]

@@ -1,8 +1,6 @@
 from rest_framework import serializers
 
-from engine.MinimumRuleHandler import MinimumRuleHandler
-from engine.StartingAndMaximumRuleHandler import StartingAndMaximumRuleHandler
-from engine.StartingRuleHandler import StartingRuleHandler
+from engine.ChainOfResponsibilityClientHandler import ChainOfResponsibilityClientHandler
 from rent_engine.utils import BookRentAPIUtils
 
 
@@ -12,13 +10,17 @@ class BookRentSerializer(serializers.Serializer):
     Novel = serializers.IntegerField()
 
     def to_representation(self, all_books_rented):
+        meta_data = dict()
+        meta_data['user'] = all_books_rented[0].customer.user.username
         categorywise_charges = {}
         for book_rented in all_books_rented:
-            total = 0
             actual_duration, category, rent_rules_info = BookRentAPIUtils.extract_data(book_rented)
-            minimum = MinimumRuleHandler(rent_rules_info, actual_duration, category)
-            starting_and_maximum = StartingAndMaximumRuleHandler(rent_rules_info, actual_duration, category)
-            starting = StartingRuleHandler(rent_rules_info, actual_duration, category)
-            minimum.set_next(starting_and_maximum).set_next(starting)
-            categorywise_charges, total = minimum.handle(total, categorywise_charges)
+            categorywise_charges = ChainOfResponsibilityClientHandler.client_handler(actual_duration,
+                                                                                     category,
+                                                                                     categorywise_charges,
+                                                                                     rent_rules_info,
+                                                                                     total=0)
+        print(meta_data)
         return categorywise_charges
+
+

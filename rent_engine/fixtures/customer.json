@@ -1,0 +1,11 @@
+[
+  {
+    "model": "rent_engine.customer",
+    "pk": 10,
+    "fields": {
+      "created_at": "2020-12-19T07:55:23.666Z",
+      "updated_at": "2020-12-19T07:55:23.666Z",
+      "user": 2
+    }
+  }
+]

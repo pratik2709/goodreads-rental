@@ -3,3 +3,4 @@ psycopg2-binary>=2.8
 djangorestframework==3.12.2
 drf_yasg
 git+https://github.com/nadirizr/json-logic-py.git
+gunicorn

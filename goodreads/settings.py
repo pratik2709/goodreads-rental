@@ -130,6 +130,17 @@ USE_L10N = True
 
 USE_TZ = True
 
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'api_key': {
+            'type': 'apiKey',
+            'in': 'header',
+            'name': 'Authorization'
+        }
+    },
+    'USE_SESSION_AUTH': False,
+    'JSON_EDITOR': True,
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
@@ -137,3 +148,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = '/srv/static/'
+

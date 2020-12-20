@@ -4,7 +4,7 @@
 
 * The containers can be started using the following command from the root directory of the project:
 ```
-docker-compose up
+docker-compose up -d
 ```
 
 * Tests can be run using the following command 

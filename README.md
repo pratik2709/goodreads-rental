@@ -13,7 +13,7 @@ docker-compose up
 
 * Tests can be run using the following command:
 ```
-docker exec -it goodreads-rental_django_1 /bin/sh -c "python manage.py test"
+docker exec -it goodreads-rental-master_django_1 /bin/sh -c "python manage.py test"
 ```
 
 Admin can be accessed:

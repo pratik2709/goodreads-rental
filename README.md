@@ -7,7 +7,12 @@
 docker-compose up
 ```
 
-* Tests can be run using the following command:
+* Tests can be run using the following command 
+(Since this is running inside docker itself the previous command should have successfully run for this):
+```
+docker exec -it <name_of_django_container> /bin/sh -c "python manage.py test"
+```
+* Example:
 ```
 docker exec -it goodreads-rental-master_django_1 /bin/sh -c "python manage.py test"
 ```

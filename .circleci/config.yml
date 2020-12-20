@@ -21,11 +21,6 @@ jobs:
           command: |
             set -x
             docker-compose up -d
-            docker exec -it project_django_1 /bin/sh -c "python manage.py migrate --noinput"
-            docker exec -it project_django_1 /bin/sh -c "python manage.py loaddata rent_engine/fixtures/data.json"
-            docker exec -it project_django_1 /bin/sh -c "python manage.py loaddata rent_engine/fixtures/customer.json"
-            docker exec -it project_django_1 /bin/sh -c "python manage.py loaddata rent_engine/fixtures/version_3.json"
-            docker exec -it project_django_1 /bin/sh -c "python manage.py load_data"
             docker exec -it project_django_1 /bin/sh -c "python manage.py test"
 
 

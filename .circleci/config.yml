@@ -16,6 +16,13 @@ jobs:
             chmod +x ~/docker-compose
             sudo mv ~/docker-compose /usr/local/bin/docker-compose
 
+        - run:
+            name: Start container and verify it is working
+            command: |
+              set -x
+              docker-compose up -d
+
+
 workflows:
   main:
     jobs:

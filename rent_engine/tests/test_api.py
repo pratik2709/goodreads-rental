@@ -23,8 +23,10 @@ class TestRentAPIStory1(APITestCase):
     def test_api_data(self):
         response = self.client.get(reverse('rent_engine:user-books'))
         data = response.json()
+        expected_data = {'Fiction': 4, 'Regular': 6, 'Novel': 6}
         print(data)
-        self.assertDictEqual({'Fiction': 4, 'Regular': 6, 'Novel': 6}, data)
+        for key, value in data.items():
+            self.assertEqual(expected_data[key], value.get('charges'))
 
 
 class TestRentAPIStory2(APITestCase):
@@ -46,8 +48,10 @@ class TestRentAPIStory2(APITestCase):
     def test_api_data(self):
         response = self.client.get(reverse('rent_engine:user-books'))
         data = response.json()
+        expected_data = {'Fiction': 30, 'Regular': 15, 'Novel': 15}
         print(data)
-        self.assertDictEqual({'Fiction': 30, 'Regular': 15, 'Novel': 15}, data)
+        for key, value in data.items():
+            self.assertEqual(expected_data[key], value.get('charges'))
 
 class TestRentAPIStory3(APITestCase):
     fixtures = ['data.json', 'customer.json', 'version_3.json']
@@ -61,5 +65,7 @@ class TestRentAPIStory3(APITestCase):
     def test_api_result(self):
         response = self.client.get(reverse('rent_engine:user-books'))
         data = response.json()
+        expected_data = {'Novel': 45.0, 'Regular': 51.5, 'Fiction': 27}
         print(data)
-        self.assertDictEqual({'Novel': 45.0, 'Regular': 51.5, 'Fiction': 27}, data)
+        for key, value in data.items():
+            self.assertEqual(expected_data[key], value.get('charges'))

@@ -44,6 +44,7 @@ class BooksRented(BaseFields):
     date_rented = models.DateField()
     date_deposited = models.DateField()
     active = models.BooleanField(default=True)
+    # due_date = models.DateField()
 
     class Meta:
         unique_together = ('customer', 'book', 'date_rented')

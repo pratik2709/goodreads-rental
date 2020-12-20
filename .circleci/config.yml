@@ -7,7 +7,8 @@ jobs:
 
     steps:
       - checkout
-      - setup_remote_docker
+      - setup_remote_docker:
+          docker_layer_caching: true
 
       - run:
           name: Install Docker Compose
@@ -17,16 +18,11 @@ jobs:
             sudo mv ~/docker-compose /usr/local/bin/docker-compose
 
       - run:
-          name: Start container and verify it is working
+          name: Start container and verify it is working and run tests
           command: |
             set -x
             docker-compose up -d
-
-      - run:
-          name: run tests
-          command: |
-            set -x
-            docker run django python manage.py test
+            docker exec -it project_django_1 /bin/sh -c "python manage.py test"
 
 
 workflows:

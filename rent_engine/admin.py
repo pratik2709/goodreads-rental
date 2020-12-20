@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from rent_engine.models import CategoryInformation, BooksCatalogue, BooksRented, Customer
+
+admin.site.register(CategoryInformation)
+admin.site.register(BooksCatalogue)
+admin.site.register(BooksRented)
+admin.site.register(Customer)

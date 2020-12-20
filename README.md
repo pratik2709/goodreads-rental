@@ -26,18 +26,5 @@ http://35.202.55.237/admin/
 ```
 http://35.202.55.237/swagger/
 ```
-* Use the 'api-token-auth' API to get the bearer key 
-* use the following as credentials:
-```
-{
-  "username": "prat",
-  "password": "123"
-}
-```
-* click authorize on top right hand corner of the page and enter the value: 
-```
-'Token <your-key>'
-```
-* Explore the API
 
 

@@ -23,8 +23,21 @@ jobs:
             docker-compose up -d
             docker exec -it project_django_1 /bin/sh -c "python manage.py test"
 
+  push-image:
+    machine: true
+    steps:
+      - checkout
+      - run: echo ${GOOGLE_AUTH} > ${HOME}/gcp-key.json
+      - run: docker compose build --rm=false -t us.gcr.io/${GCP_PROJECT}/${IMAGE_NAME}:$CIRCLE_SHA1 .
+      - run: gcloud auth activate-service-account --key-file ${HOME}/gcp-key.json
+      - run: gcloud --quiet config set project ${GCP_PROJECT}
+      - run: gcloud docker -- push us.gcr.io/${GCP_PROJECT}/${IMAGE_NAME}:$CIRCLE_SHA1
+
 
 workflows:
-  main:
+  test-and-push-image:
     jobs:
       - build-and-test
+      - push-image:
+          requires:
+            - build-and-test
